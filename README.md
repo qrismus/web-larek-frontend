@@ -42,7 +42,7 @@ yarn build
 ```
 
 # Архитектура
-[Схема архитектуры](./src/images/arh.png)
+![Схема архитектуры](./src/images/arh.png)
 
 # Базовый код
 ## 1. Класс EventEmitter
