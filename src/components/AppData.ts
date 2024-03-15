@@ -27,6 +27,7 @@ export class AppState extends Model<IAppState> {
 		total: 0,
 	};
 	formErrors: FormErrors = {};
+	buttonText: 'Добавить' | 'Убрать';
 
 	clearBasket() {
 		this.basket = [];
@@ -44,7 +45,7 @@ export class AppState extends Model<IAppState> {
 	}
 
 	getTotal(): number {
-        return this.basket.reduce((a, b) => { return a + b.price }, 0)
+        return this.basket.reduce((total, item) => total + item.price, 0);
     }
 
 	updateBasket() {
@@ -63,6 +64,15 @@ export class AppState extends Model<IAppState> {
 		this.basket = this.basket.filter((element) => element != item);
 		this.updateBasket();
 	}
+
+	getButtonName(value: string): string {
+		if (this.basket.some(obj => obj.title === value)) {
+			this.buttonText = 'Убрать';
+		  } else {
+			this.buttonText = 'Добавить';
+		  }
+		return this.buttonText;
+	  }
 
 	setDeliveryField(field: keyof IDeliveryForm, value: string) {
 		this.order[field] = value;

@@ -36,10 +36,6 @@ export interface ICard extends IProduct {
 	index?: string;
 }
 
-export interface IOrderResult {
-	id: string;
-}
-
 export interface IActions {
 	onClick: (event: MouseEvent) => void;
 }

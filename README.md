@@ -42,7 +42,7 @@ yarn build
 ```
 
 # Архитектура
-![Схема архитектуры](./src/images/uml.png)
+![Схема архитектуры](./src/images/uml2.png)
 
 # Базовый код
 
@@ -182,6 +182,7 @@ container: HTMLElement, actions: ISuccessActions
 - validateDelivery - валидация формы доставки;
 - setContactField - устанавливает значения полей для контактной формы;
 - validateContact - валидация формы контактов;
+- getButtonName - управляет значением кнопки;
 
 ### 5. Класс ContactForm
 Наследуется от класса ```Form```. Управляет отображением формы контактов.
