@@ -78,15 +78,17 @@ events.on('preview:changed', (item: ProductItem) => {
 	const card = new Card(cloneTemplate(cardPreviewTemplate), {
 		onClick: () => {
 			events.emit('product:toggle', item);
-
-			if (appData.buttonText === 'Добавить') {
-				events.emit('product:add', item);
-				card.button = appData.getButtonName(item.title);
+			if (item.price !== null) {
+				if (appData.buttonText === 'Добавить') {
+					events.emit('product:add', item);
+					card.button = appData.getButtonName(item.title);
+				} else {
+					events.emit('product:delete', item);
+					card.button = appData.getButtonName(item.title);
+				}
 			} else {
-				events.emit('product:delete', item);
-				card.button = appData.getButtonName(item.title);
+				card.blockButton()
 			}
-
 		},
 	});
 	modal.render({

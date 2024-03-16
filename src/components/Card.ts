@@ -74,4 +74,11 @@ export class Card extends Component<ICard> {
 	set index(value: string) {
 		this._index.textContent = value;
 	}
+
+	blockButton() {
+        if (this._button) {
+            this.setDisabled(this._button, true);
+            this.setText(this._button, 'Данный продукт купить нельзя')
+        }
+    }
 }
